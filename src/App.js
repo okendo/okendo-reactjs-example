@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
@@ -7,21 +6,27 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
+          Okendo Cosmetics
         </header>
+        <div className="okendo-widget-container">
+          <OkendoReviewsWidget productId="11516559628"></OkendoReviewsWidget>
+        </div>
       </div>
     );
+  }
+}
+
+class OkendoReviewsWidget extends Component {
+  render() {
+    return <div id="oke-reviews-widget"
+      data-oke-reviews-widget
+      data-oke-reviews-product-id={`shopify-${this.props.productId}`}>
+    </div>;
+  }
+
+  componentDidMount() {
+    const reviewsWidget = window.document.querySelector('#oke-reviews-widget');
+    window.okendoInitApi.initReviewsWidget(reviewsWidget);
   }
 }
 
