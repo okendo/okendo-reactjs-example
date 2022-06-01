@@ -8,22 +8,12 @@
   <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
   <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
 
-  <link href="https://d3hw6dc1ow8pp2.cloudfront.net/styles/main.min.css" rel="stylesheet" type="text/css">
-  <script async src="https://d3hw6dc1ow8pp2.cloudfront.net/reviewsWidget.min.js"></script>
-  <script>
-    window.okeReviewsWidgetOnInit = function (okendoInitApi) {
-      window.okendoInitApi = okendoInitApi;
-    }
-  </script>
-  <script type="application/json" id="oke-reviews-settings">
-    {"subscriberId":"1ec34ba6-5bcc-4cb7-8506-0f7f27207988"}
-  </script>
-
+  <meta name="oke:subscriber_id" content="1ec34ba6-5bcc-4cb7-8506-0f7f27207988" />
+  <script async src="https://d3hw6dc1ow8pp2.cloudfront.net/reviews-widget-plus/js/okendo-reviews.js"></script>
 </head>
 
 <body>
   <noscript>You need to enable JavaScript to run this app.</noscript>
   <div id="root"></div>
 </body>
-
 </html>
