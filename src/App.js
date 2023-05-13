@@ -21,46 +21,50 @@ class App extends Component {
   }
 }
 
-const OkendoStarRating = (props) => {
+const OkendoStarRating = ({ productId }) => {
   const widgetContainer = useRef(null);
 
-  const initialiseReviewsWidget = () => {
+  const initialiseWidget = () =>
     window.okeWidgetApi.initWidget(widgetContainer.current);
-  }
 
   useEffect(() => {
-    if (window.okeWidgetApi) {
-      initialiseReviewsWidget();
+    if (window.okeWidgetApi?.initWidget) {
+      initialiseWidget();
+    } else {
+      document.addEventListener('oke-script-loaded', initialiseWidget);
     }
-    else {
-      window.addEventListener('oke-script-loaded', initialiseReviewsWidget);
-    }
-  }, []);
+  }, [productId]);
 
   return (
-    <div ref={widgetContainer} data-oke-star-rating data-oke-reviews-product-id={`shopify-${props.productId}`}></div>
+    <div
+      ref={widgetContainer}
+      data-oke-star-rating
+      data-oke-reviews-product-id={`shopify-${productId}`}
+    ></div>
   );
-}
+};
 
-const OkendoReviewsWidget = (props) => {
+const OkendoReviewsWidget = ({ productId }) => {
   const widgetContainer = useRef(null);
 
-  const initialiseReviewsWidget = () => {
+  const initialiseWidget = () =>
     window.okeWidgetApi.initWidget(widgetContainer.current);
-  }
 
   useEffect(() => {
-    if (window.okeWidgetApi) {
-      initialiseReviewsWidget();
+    if (window.okeWidgetApi?.initWidget) {
+      initialiseWidget();
+    } else {
+      document.addEventListener('oke-script-loaded', initialiseWidget);
     }
-    else {
-      window.addEventListener('oke-script-loaded', initialiseReviewsWidget);
-    }
-  }, []);
+  }, [productId]);
 
   return (
-    <div ref={widgetContainer} data-oke-widget data-oke-reviews-product-id={`shopify-${props.productId}`}></div>
+    <div
+      ref={widgetContainer}
+      data-oke-widget
+      data-oke-reviews-product-id={`shopify-${productId}`}
+    ></div>
   );
-}
+};
 
 export default App;
