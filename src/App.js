@@ -33,6 +33,11 @@ const OkendoStarRating = ({ productId }) => {
     } else {
       document.addEventListener('oke-script-loaded', initialiseWidget);
     }
+
+    return () => {
+      document.removeEventListener('oke-script-loaded', initialiseWidget);
+    }
+    
   }, [productId]);
 
   return (
@@ -56,6 +61,11 @@ const OkendoReviewsWidget = ({ productId }) => {
     } else {
       document.addEventListener('oke-script-loaded', initialiseWidget);
     }
+
+    return () => {
+      document.removeEventListener('oke-script-loaded', initialiseWidget);
+    }
+
   }, [productId]);
 
   return (
